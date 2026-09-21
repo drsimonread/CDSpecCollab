@@ -6082,3 +6082,4 @@ venv/Scripts/pythonw.exe	generated virtual environment
 venv/Scripts/sqlformat.exe	generated virtual environment
 venv/pyvenv.cfg	generated virtual environment
 cd_spec_viewer_web/socialaccount.json	OAuth credentials detected by GitHub push protection
+client_secret_51474285183-278sfq0n5u3bq8t3ai4potva3s4khhjj.apps.googleusercontent.com.json	OAuth credential file

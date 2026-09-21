@@ -1,0 +1,19 @@
+{% load socialaccount %} <!-- Load the socialaccount template tags for handling social logins -->
+<html>
+    <head>
+        <title> Google Registration </title> <!-- Page title -->
+    </head>
+    <body>
+        <h1>CDSpec Google Login</h1> <!-- Main header for the page -->
+
+        {% if user.is_authenticated %}
+        <!-- Check if the user is logged in -->
+        <p> Welcome, {{user.username}} !</p> <!-- Display a personalized greeting with the username -->
+
+        {% else %}
+        <!-- If the user is not logged in -->
+        <h1>CDSpec Google Login</h1> <!-- Repeat the header (optional) -->
+        <a href="{% provide_login_url 'google' %}">Login with Google</a> <!-- Link to Google login -->
+        {% endif %}
+    </body>
+</html>

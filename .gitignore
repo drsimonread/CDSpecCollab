@@ -1,0 +1,17 @@
+
+.venv
+*.pyc
+__pycache__
+cd_spec_viewer_web/.envs/.local/.django
+cd_spec_viewer_web/.envs/.local/.django
+cd_spec_viewer_web/.envs/.local/.django
+# Ignore the SQLite database
+db.sqlite3
+
+# Ignore Django migration files
+*/migrations/*.py
+!*/migrations/__init__.py
+
+# Ignore environment files
+.env
+venv/

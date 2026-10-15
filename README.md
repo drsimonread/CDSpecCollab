@@ -14,7 +14,7 @@ The Circular Dichroism Spectrometer (CD Spec) project is a database that allows 
 
 # Training Documentation.
 
-There is [training documentation](docs/index.md) available for developers.
+There is [training documentation](docs/00-start-here.md) available for developers.
 
 # Links to Documentation
 [SDD](https://github.com/drsimonread/COSC4012020/blob/master/Documentation/Sorted%20Documentation%20(SP25)/Finished%20Documents/2023%20402%20SDD.docx.md)

@@ -60,4 +60,4 @@ Back to the routine: [13 A typical development session](13-a-typical-development
 
 ---
 
-*Prepared by Simon Read with help from Claude, an AI assistant made by Anthropic.*
+*Prepared by Simon Read with help from Claude Opus 5.5, an AI model made by Anthropic.*

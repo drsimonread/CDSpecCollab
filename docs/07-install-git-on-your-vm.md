@@ -119,4 +119,4 @@ Let your VM send work to GitHub: [08 Connect git to GitHub](08-connect-git-to-gi
 
 ---
 
-*Prepared by Simon Read with help from Claude, an AI assistant made by Anthropic.*
+*Prepared by Simon Read with help from Claude Opus 5.5, an AI model made by Anthropic.*

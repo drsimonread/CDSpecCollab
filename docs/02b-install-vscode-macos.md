@@ -88,4 +88,4 @@ Add the extensions the course uses: [03 Install the VS Code extensions](03-insta
 
 ---
 
-*Prepared by Simon Read with help from Claude, an AI assistant made by Anthropic.*
+*Prepared by Simon Read with help from Claude Opus 5.5, an AI model made by Anthropic.*

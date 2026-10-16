@@ -128,4 +128,4 @@ Make a change and send it to GitHub: [10 Commit and push your changes](10-commit
 
 ---
 
-*Prepared by Simon Read with help from Claude, an AI assistant made by Anthropic.*
+*Prepared by Simon Read with help from Claude Opus 5.5, an AI model made by Anthropic.*

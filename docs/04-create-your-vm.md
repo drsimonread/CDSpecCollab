@@ -221,4 +221,4 @@ When you have finished with the course, delete the VM (and the project, if nothi
 
 ---
 
-*Prepared by Simon Read with help from Claude, an AI assistant made by Anthropic.*
+*Prepared by Simon Read with help from Claude Opus 5.5, an AI model made by Anthropic.*

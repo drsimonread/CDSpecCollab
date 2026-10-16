@@ -103,4 +103,4 @@ Copy your team's project onto the VM: [09 Clone your team repository](09-clone-y
 
 ---
 
-*Prepared by Simon Read with help from Claude, an AI assistant made by Anthropic.*
+*Prepared by Simon Read with help from Claude Opus 5.5, an AI model made by Anthropic.*

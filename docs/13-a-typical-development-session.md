@@ -170,4 +170,4 @@ Come back to this guide at the start of every session until the routine is secon
 
 ---
 
-*Prepared by Simon Read with help from Claude, an AI assistant made by Anthropic.*
+*Prepared by Simon Read with help from Claude Opus 5.5, an AI model made by Anthropic.*

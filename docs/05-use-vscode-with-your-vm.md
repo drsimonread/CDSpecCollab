@@ -339,4 +339,4 @@ After that, guides 07 to 13 set up git and take you through the team's routine, 
 
 ---
 
-*Prepared by Simon Read with help from Claude, an AI assistant made by Anthropic.*
+*Prepared by Simon Read with help from Claude Opus 5.5, an AI model made by Anthropic.*

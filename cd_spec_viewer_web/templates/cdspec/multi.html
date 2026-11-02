@@ -15,7 +15,7 @@
 <button onClick = "changeY3()">Display {{first.y3_units}}</button>
 {% endif %}
 </div>
-{# imported javascript data for the poltly app and the colorwheel #}
+{# imported javascript data for the plotly app and the colorwheel #}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -110,12 +110,17 @@ var data = [];
 
 //for each model, add (x, y) trace to data array, then create scatter plot
 {% for protein in proteins %}
+{% cycle 'solid' 'dash' 'dot' as line_dash silent %}
+{% cycle 'circle' 'square' 'triangle-up' as marker_symbol silent %}
+{% cycle '6' '6' '8' as marker_size silent %}
 var trace{{forloop.counter}} = {
     x: {{protein.x|safe}},
     y: {{protein.y|safe}},
    // mode come from the plotly
     mode: 'lines+markers',
-    name: '{{protein.run_title}}'
+    name: '{{protein.run_title}}',
+    line: { dash: '{{line_dash}}' },
+    marker: { symbol: '{{marker_symbol}}', size: {{marker_size}} }
 };
 
 // adding trace to data array

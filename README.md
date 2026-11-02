@@ -13,3 +13,7 @@ The Circular Dichroism Spectrometer (CD Spec) project is a database that allows 
 [SRS](Documentation/Sorted%20Documentation%20(SP25)/FA26%20Documentation/2023%20402%20SRS.docx.md)
 
 [STP](Documentation/Sorted%20Documentation%20(SP25)/FA26%20Documentation/2023%20402%20STP.docx.md)
+
+# Training Documentation.
+
+There is [training documentation](docs/00-start-here.md) available for developers.

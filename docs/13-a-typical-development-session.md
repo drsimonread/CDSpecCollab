@@ -145,7 +145,7 @@ Do not close the browser tab until the icon has changed; a VM left half-way thro
 
 ## If something goes wrong
 
-**VS Code will not connect.** Check that the VM is running and that `HostName` matches its current External IP address (Steps 1 and 2). If VS Code keeps trying to download or install the VS Code Server, see guide 05's "If something goes wrong".
+**VS Code will not connect.** Check that the VM is running and that `HostName` matches its current External IP address (Steps 1 and 2). If VS Code keeps trying to download or install the VS Code Server, follow [05a Fix repeated VS Code Server downloads](05a-fix-vscode-server-repeated-downloads.md).
 
 **I forgot to push, and I have already stopped the VM.** Your work is safe on the VM's disk, but nobody can see it. Start the VM, connect, push (Steps 1 to 3, then Step 10), and stop the VM again.
 

@@ -38,6 +38,7 @@ If you are not sure which team you are on, ask your instructor before guide 09.
 | [03 Install the VS Code extensions](03-install-vscode-extensions.md) | Adds Remote Development, Python, Django and GitHub Copilot | Your laptop |
 | [04 Create your Google Cloud VM](04-create-your-vm.md) | Makes your SSH key, creates the VM, and stops and starts it | Your laptop and a web browser |
 | [05 Use VS Code with your VM](05-use-vscode-with-your-vm.md) | Connects to the VM; folders, files, Python and Copilot | VS Code, connected to your VM |
+| [05a Fix repeated VS Code Server downloads](05a-fix-vscode-server-repeated-downloads.md) | Only if connecting never finishes: clears out a stuck VS Code Server installation | Your laptop and your VM |
 | [06 Get started with Django](06-get-started-with-django.md) | Builds a tiny Django site on the VM | VS Code, connected to your VM |
 | [07 Install git on your VM](07-install-git-on-your-vm.md) | Installs and configures git | Your VM |
 | [08 Connect git to GitHub](08-connect-git-to-github.md) | Lets your VM push to GitHub | Your VM and a web browser |

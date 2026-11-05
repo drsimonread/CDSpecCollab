@@ -16,7 +16,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Key used to pair with google and allows for google authentication
 # Sign in with google (needs to be changed to special email when released)
 # (UPDATE ON RELEASE)
-SECRET_KEY = ''
+SECRET_KEY = 'vmiRCzmkm2goVpBOb5WqZQloB8oe1xRTnCpM9O0ynjDFlxXoaUf2eLRoPf1mC5PItfQ'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # When you go to a page with an error, when enabled this displays

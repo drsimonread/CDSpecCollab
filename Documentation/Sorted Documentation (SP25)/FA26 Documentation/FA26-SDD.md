@@ -1,15 +1,14 @@
 
 
-| Circular Dichroism Spectrometer Software Design Description Version 4.0 02-06-2023 402 Quality Assurance & Documentation Team  |
+| Circular Dichroism Spectrometer Software Design Description Version 4.0 11/6/2026 402 Quality Assurance & Documentation Team  |
 | :---: |
 
 ---
 
-*the photos have been downloaded, will be uploaded into a folder like in ccc to be reinserted*
 
 **Table of Contents**
 
-[**1\. Introduction\. 2**](#1-Introduction)
+[**1.\. Introduction\. 2**](#1-Introduction)
 
 * [**1.1\. Purpose\. 2**](#11-purpose)
 
@@ -21,19 +20,19 @@
 
 * [**1.5\. System Overview\. 3**](#15-system-overview)
 
-[**2\. Data Design\. 3**](#2-data-design)
+[**2.\. Data Design\. 3**](#2-data-design)
 
 * [**2.1\. Internal Data Structures\. 4**](#21-internal-data-structures)
 
-* [**2.2\. Data Flow Diagrams\. 4**](#22-data-flow-diagrams)*this needs restoring*
+* [**2.2\. Data Flow Diagrams\. 4**](#22-data-flow-diagrams)
 
 * [**2.3\. Data Dictionary\. 4**](#23-data-dictionary)
 
-[**3\. Architecture Design\. 5**](#3-architecture-design)
+[**3.\. Architecture Design\. 5**](#3-architecture-design)
 
-* [**3.1\. Program Structure\. 5**](#31-program-structure)*this needs restoring*
+* [**3.1\. Program Structure\. 5**](#31-program-structure)
 
-[**4\. Interface Design\. 6**](#4-interface-design)
+[**4.\. Interface Design\. 6**](#4-interface-design)
 
 * [**4.1 Internal System Interfaces\. 6**](#41-internal-system-interfaces)
 
@@ -41,9 +40,9 @@
 
 * [**4.3 User Interfaces\. 7**](#43-user-interfaces)
 
-[**5\. Procedural Design\. 13**](#5-procedural-design)
+[**5.\. Procedural Design\. 13**](#5-procedural-design)
 
-[**6\. Miscellaneous\. 15**](#6-miscellaneous)
+[**6.\. Miscellaneous\. 15**](#6-miscellaneous)
 
 **Revision History**
 
@@ -53,8 +52,9 @@
 | 3/8/21  |  2.0 | Software Design Description Second Release  | Annette Orr, Christopher Beatrez, Faith Meyer, Edward Park  |
 | 9/14/22 | 3.0 | Software Design Description Release  | Mathias Boddicker,  Victor Riley, Marian Marteja, Liam Pratt, Jordan Reece, Gavin McDonald |
 | 2/6/23 | 4.0 |  Software Design Description Fourth Release | Isabella Stephens, Liam Pratt, Jordan Reece, Mathias Boddicker, Gavin McDonald |
+| 11/6/26 | 5.0 | Software Design Description FA26 Update | Claudia Woodbury |
 
-# 1\. Introduction** 
+# **1.\. Introduction** 
 
 ## **1.1\. Purpose** 
 
@@ -87,7 +87,7 @@ This Software Design document pertains to the CD Spec application project and al
 
 The Circular Dichroism Spectrometer (CD Spec) application is an online database created for research and education purposes. This application shall be utilized by both the instructors and students to monitor spectral changes in structure between protein-DNA interactions. Users of this application shall be able to create three forms of accounts, including an administrator account with full permissions, a student account with limited permissions as specified by the administrator, and public accounts with the least amount of permissions available. A public user may only download and view data within the database, they may not upload, edit, or delete any data from the database. A student account has increased privileges, as students may upload and edit data within the database, with administrator supervision, as well as download any and all data uploaded. Administrator accounts have full access to all functions of this database, meaning these accounts may upload, edit, delete, and download all data entering and exiting the database.
 
-# **2\. Data Design**
+# **2.\. Data Design**
 
 ## **2.1\. Internal Data Structures** 
 
@@ -108,8 +108,7 @@ The system will store and maintain the following data:
 
 ## **2.2\. Data Flow Diagrams** 
 
-**![][image1]**
-This image will get restored.
+![A Diagram Demonstrating the flow of data to and from each user type](../SDD%20Images/data-flow-diagram.png)
 
 ## **2.3\. Data Dictionary** 
 
@@ -126,17 +125,13 @@ This image will get restored.
 * **Google button**  - This part of the software grants account credentials to students that attend St. Mary’s College of Maryland by using their school email as their username and their email password.   
 * **Data Explorer** - This part of the software will provide additional results when the user is searching for data in the database
 
-# **3\. Architecture Design** 
+# **3.\. Architecture Design** 
 
 ## **3.1\. Program Structure** 
 
-![][image2]
+![Two images make up a diagram showing the structure of the program](../SDD%20Images/program-structure-diagram1.png)![](../SDD%20Images/program-structure-diagram2.png)
 
-Diagram 2
-
-![][image3]
-
-# **4\. Interface Design** 
+# **4.\. Interface Design** 
 
 ## **4.1\. Internal System Interfaces**
 
@@ -177,60 +172,46 @@ This interface’s primary purpose is to display the data that is within the dat
 ## **4.3\. User Interfaces**
 
 **Home Screen Display**  
-*![][image4]*  
+![An image showing the home screen display on the CDSpec website](../SDD%20Images/home-screen-display.png)
+
 **Log-in Screen Display**
+![An image showing the log-in screen display on the CDSpec website](../SDD%20Images/log-in-screen-display.png)
 
-**![][image5]**  
 **Google Sign-in Display**  
-**![][image6]**
+![An image showing the use of Google Sign-in on the CDSpec website](../SDD%20Images/google-sign-in-display.png)
 
-**Database Screen Display![][image7]**
+**Database Screen Display**
+![An image showing the Database Screen Display (Index Page) on the CDSpec website](../SDD%20Images/database-screen-display.png)
 
 **Administrator (Master) Screen Display**  
-**![][image8]**  
+![An image showing the Admin Display for the CDSpec website](../SDD%20Images/admin-screen-display.png)
+
 **Upload File Display**  
-**![][image9]**
+![An image showing the Upload File Display for the CDSpec website](../SDD%20Images/upload-file-display.png)
 
 **Personal Profile Display**  
-**![][image10]**  
+![An image showing the Personal Profile Display for the CDSpec website](../SDD%20Images/personal-profile-display.png)  
+
 **Website Information Display**  
-**![][image11]**
+![An image showing the About Page for the CDSpec website](../SDD%20Images/website-information-display.png)
 
 **Password Recovery Display**  
-**![][image12]**
+![An image showing the Password Reset Display for the CDSpec website](../SDD%20Images/password-recovery-display.png)
 
 **Single Graph Screen**  
-**![][image13]**
+![An image showing a graphical representation of one of the data sets on the CDSpec website](../SDD%20Images/single-graph-screen.png)
 
-**Multi Graph Screen**
-
-**![][image14]**
+**Multi Graph Screen**  
+![An image showing a graphical representation of two different data sets on the CDSpec website](../SDD%20Images/multi-graph-screen.png)
 
 **Graph Color Wheel Display**  
-*![][image15]*
+![An image of the color wheel used to choose the color for the graph representation on the CDSpec website](../SDD%20Images/graph-color-wheel-picker.png)
 
-# **5\. Procedural Design** 
+# **5.\. Procedural Design** 
 
-*![][image16]*
+![An image showing the paths and choices on the CDSpec website](../SDD%20Images/procedural-design-diagram.png)
 
-# **6\. Miscellaneous** 
+# **6.\. Miscellaneous** 
 
 None.  
----
 
-image1: data-flow-diagram.png
-image2: program-structure-diagram1.png
-image3: program-structure-diagram2.png
-image4: home-screen-display.png
-image5: log-in-screen-display.png
-image6: google-sign-in-display.png
-image7: database-screen-display.png
-image8: admin-screen-display.png
-image9: upload-file-display.png
-image10: personal-profile-display.png
-image11: website-information-display.png
-image12: password-recovery-display.png
-image13: single-graph-screen.png
-imgae14: multi-graph-screen.png
-image15: graph-color-wheel-picker.png
-imgae16: procedural-design-diagram.png

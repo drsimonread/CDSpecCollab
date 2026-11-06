@@ -7,28 +7,24 @@
 
 **Table of Contents**
 
-**[1\. Introduction](#1.-introduction)	[2](#1.-introduction)**
+[**1.\. Introduction\. 2**](#1-introduction)
+<!-- no toc -->
+* [**1.1 Purpose\. 2**](#11-purpose)
+* [**1.2 Scope\. 2**](#12-scope)
+* [**1.3 Definitions, Acronyms, and Abbreviations\. 2**](#13-definitions-acronyms-and-abbreviations)
+* [**1.4 Document References\. 2**](#14-document-references)
+* [**1.5 System Overview\. 2**](#15-system-overview)
 
-[**1.1 Purpose**](#1.1-purpose)	**[2](#1.1-purpose)**
+[**2.\. Traceability\. 3**](#2-traceability)
+<!-- no toc -->
+* [**2.1 Requirements List\. 3**](#21-requirements-list)
+* [**2.2 Tests List\. 4**](#22-tests-list)
+* [**2.3 Python Files List**](#23-python-files-list)
+* [**2.4 Traceability Table: Tests and Requirements\. 6**](#24-traceability-table-tests-to-requirements)
+* [**2.5 Traceability Table: Python Files and Requirements**](#25-traceability-table-python-files-to-requirements)
 
-[**1.2 Scope**](#1.2-scope)	**[2](#1.2-scope)**
-
-[**1.3 Definitions, Acronyms, and Abbreviations**](#1.3-definitions,-acronyms,-and-abbreviations)	**[2](#1.3-definitions,-acronyms,-and-abbreviations)**
-
-[**1.4 Document References**](#1.4-document-references)	**[2](#1.4-document-references)**
-
-[**1.5 System Overview**](#1.5-system-overview)	**[2](#1.5-system-overview)**
-
-[**2\. Traceability**](#2.-traceability)	**[3](#2.-traceability)**
-
-[**2.1 Requirements List**](#2.1-requirements-list)	**[3](#2.1-requirements-list)**
-
-[**2.2 Tests List**](#2.2-tests-list)	**[4](#2.2-tests-list)**
-
-[**2.4 Traceability Table**](#2.4-traceability-table)	**[6](#2.4-traceability-table)**
-
-[**3\. Miscellaneous**](#3.-miscellaneous)	**[8](#3.-miscellaneous)**
-
+[**3.\. Miscellaneous\. 8**](#3-miscellaneous)
+___
 **Revision History**
 
 | Date | Version | Description | Author(s) |
@@ -39,39 +35,37 @@
 | 10/05/22 | 3.1 | Traceability Matrix Python Files and Requirements Update | Mathias Boddicker,  Victor Riley, Marian Marteja, Liam Pratt, Jordan Reece, Gavin McDonald |
 | 02/08/23 | 3.2 | Traceability Matrix | Isabella Stephens, Liam Pratt, Jordan Reece, Mathias Boddicker, Gavin McDonald |
 
----
 
-##### **1\. Introduction** {#1.-introduction}
+# **1.\. Introduction**
 
-##### **1.1 Purpose** {#1.1-purpose}
+## **1.1\. Purpose**
 
 The purpose of this Traceability Matrix is to document the Circular Dichroism Spectrometer’s (CD Spec) requirements, aspects, and functionalities. This document will be used by both the Research and Development (R\&D) team as well as the Quality Assurance and Documentation team (QA) to keep track of the CD Spec project’s completeness.
 
-##### **1.2 Scope** {#1.2-scope}
+## **1.2\. Scope**
 
 This document pertains to the CD Spec project and all of its associated documentation and files. The Traceability Matrix shall be used by project team members to check if the project’s requirements and functions have been implemented through the use of tables.
 
-##### **1.3 Definitions, Acronyms, and Abbreviations** {#1.3-definitions,-acronyms,-and-abbreviations}
+## **1.3\. Definitions, Acronyms, and Abbreviations**
+| Acronym | Meaning |
+|:---:|:---:|
+| **CD Spec**| Circular Dichroism Spectrometer  |
+| **SRS**| Software Requirements Specification  |
+| **R&D** | Research & Development  |
+| **QA**| Quality Assurance|
 
-* **CD Spec \-** Circular Dichroism Spectrometer  
-* **SRS \-** Software Requirements Specification  
-* **R\&D** \- Research & Development  
-* **QA \-** Quality Assurance
+## **1.4\. Document References**
 
-##### **1.4 Document References** {#1.4-document-references}
+**SRS** Software Requirements Specification Version 5.0 11/6/2026
 
-* **SRS \-** Software Requirements Specification
-
-##### **1.5 System Overview** {#1.5-system-overview}
+## **1.5\. System Overview**
 
 The application to be built is a standalone web application that serves as an instrument to analyze circular polarized light. The application will be able to be accessed through most web browsers such as Google Chrome, Mozilla Firefox, Microsoft Edge, etc. Once accessed the user will be asked to input login credentials in order to view information in the site’s database. The web application should be able to be used by at least 200 users. 
 
-##### ---
+# **2.\. Traceability**
 
-**2\. Traceability** {#2.-traceability}
+## **2.1\. Requirements List**
 
-##### **2.1 Requirements List** {#2.1-requirements-list}
-**I HAVE MOVED itEMS IN SRS SO THE SECtion NUMBERS NEED REDOING**
 | Requirement Number | SRS Section Number | SRS Section Title |
 | :---: | :---: | :---: |
 | **R1** | 2.1 | Start up page |
@@ -81,27 +75,27 @@ The application to be built is a standalone web application that serves as an in
 | **R5** | 2.2 | Account Creation Page |
 | **R6** | 2.2.1 | Login Interface |
 | **R7** | 2.2.2 | Student/Admin Account Creation (Key) |
-| **R8** | 2.5 | Application Home Page |
-| **R9** | 2.5.6 | Data Access |
-| **R10** | 2.5.2 | Data Search Bar |
-| **R11** | 2.5.3 | About Page |
-| **R12** | 2.5.4 | Data Compare Button |
-| **R13** | 2.5.4.1 | Data Comparison Parameters |
-| **R14** | 2.5.4.2 | Data Graphical Representation |
-| **R15** | 2.5.5 | Admin Upload Page |
-| **R16** | 2.5.5.1 | Admin Edit/Create Button |
-| **R17** | 2.6.1 | Data Upload (CSV or Text Files) |
+| **R8** | 2.5 | Application Index Page |
+| **R9** | 2.8 | User Types and Access |
+| **R10** | 2.5.3 | Data Search Bar |
+| **R11** | 2.7 | About Page |
+| **R12** | 2.10.1 | Data Compare Button |
+| **R13** | 2.10.1.1 | Data Comparison Parameters |
+| **R14** | 2.10.1.2 | Data Graphical Representation |
+| **R15** | 2.6.1 | Admin Upload Page |
+| **R16** | 2.6.2 | Admin Edit/Create Button |
+| **R17** | 2.9.1 | Data Upload (CSV or Text Files) |
 | **R18** | 2.4 | Help Page |
-| **R19** | 2.5.1 | Data Unlocks (account privileges) |
-| **R20** | 2.5.4.3 | Temperature Parameter (Graphing/Z-Axis) |
-| **R21** | 2.5.5.2 | Description Box (Data Upload) |
-| **R22** | 2.7.3 | Multi-Graph |
-| **R23** | 2.7.1 | Voltage Parameter  |
-| **R24** | 2.7.2 | Temporal Scale Parameter/Display  |
+| **R19** | 2.8.1 | Data Unlocks (account privileges) |
+| **R20** | 2.10.1.3 | Temperature Parameter (Graphing/Z-Axis) |
+| **R21** | 2.6.3 | Description Box (Data Upload) |
+| **R22** | 2.10.2.3 | Multi-Graph |
+| **R23** | 2.10.2.1 | Voltage Parameter  |
+| **R24** | 2.10.2.2 | Temporal Scale Parameter/Display  |
 
 * (\*) \= TBD requirements/possibly not implemented in final product
 
-##### **2.2 Tests List** {#2.2-tests-list}
+## **2.2\. Tests List**
 
 | Test Number | Test (Subsystem) Description |
 | :---: | ----- |
@@ -123,9 +117,7 @@ The application to be built is a standalone web application that serves as an in
 | **T16** | This test is to test the application’s handling of invalid file uploads. |
 | **T17** | This test is to test the application’s About page. |
 
-##### 
-
-**2.3 Python Files List**
+## **2.3 Python Files List**
 
 | Python Number | Python File Name |
 | :---: | :---: |
@@ -159,8 +151,8 @@ The application to be built is a standalone web application that serves as an in
 | **P28** | test\_urls.py |
 | **P29** | test\_views.py |
 
-##### **2.4 Traceability Table** {#2.4-traceability-table}
-
+## **2.4\. Traceability Table: Tests to Requirements**
+#### This table shows the relationship between the Test Number (as found in 2.2) and the Requirement (as found in 2.1).
 |   | T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8 | T9 | T10 | T11 | T12 | T13 | T14 | T15 | T16 | T17 |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **R1** |  | **X** | **X** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -188,8 +180,8 @@ The application to be built is a standalone web application that serves as an in
 | **R23** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | **R24** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 
-**2.5 Traceability Table of Python File to Requirements**
-
+## **2.5\. Traceability Table: Python Files to Requirements**
+#### This table shows the relationship between the Python File (as found in 2.3) and the Requirement (as found in 2.1).
 |  | P1 | P2 | P3 | P4 | P5 | P6 | P7 | P8 | P9 | P10 | P11 | P12 | P13 | P14 | P15 | P16 | P17 | P18 | P19 | P20 | P21 | P22 | P23 | P24 | P25 | P26 | P27 | P28 | P29 |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
 | **R1** |  | **X** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | **X** |  |  |  |  |  |  |  |
@@ -217,8 +209,6 @@ The application to be built is a standalone web application that serves as an in
 | **R23** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | **X** |  |  |  |  | **X** |  |  |
 | **R24** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | **X** |  |  |  |  | **X** |  |  |
 
-##### ---
-
-**3\. Miscellaneous** {#3.-miscellaneous}
+# **3.\. Miscellaneous** 
 
 None.  

@@ -71,7 +71,7 @@ The application to be built is a standalone web application that serves as an in
 **2\. Traceability** {#2.-traceability}
 
 ##### **2.1 Requirements List** {#2.1-requirements-list}
-
+**I HAVE MOVED itEMS IN SRS SO THE SECtion NUMBERS NEED REDOING**
 | Requirement Number | SRS Section Number | SRS Section Title |
 | :---: | :---: | :---: |
 | **R1** | 2.1 | Start up page |

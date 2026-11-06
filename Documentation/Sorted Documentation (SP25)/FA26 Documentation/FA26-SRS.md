@@ -7,37 +7,43 @@
 
 **Table of Contents**
 
-**[1\. Introduction](#1.-introduction)	[2](#1.-introduction)**
+[**1\. Introduction\. 2**](#1-introduction)
 
-[**1.1 Purpose**](#1.1-purpose)	**[2](#1.1-purpose)**
+* [**1.1\. Purpose\. 2**](#11-purpose)
+* [**1.2\. Scope\. 2**](#12-scope)
+* [**1.3\. Definitions, Acronyms, and Abbreviations\. 2**](#13-definitions-acronyms-and-abbreviations)
+* [**1.4\. Document References\. 3**](#14-document-references)
+* [**1.5\. System Overview\. 3**](#15-system-overview)
+  
+[**2\. Functional Description\. 3**](#2-functional-description)
 
-[**1.2 Scope**](#1.2-scope)	**[2](#1.2-scope)**
+* [*2.1\. Login Page*](#21-login-page)
+* [*2.2\. User Creation Page*](#22-user-creation-page)
+* [*2.3\. Forgotten Password Page*](#23-forgotten-password-page)
+* [*2.4\. Help Page*](#24-help-page)
+* [*2.5\. Index Page*](#25-index-page)
+* [*2.6\. Upload Page*](#26-upload-page)
+* [*2.7\. About Page*](#27-about-page)
+* [*2.8\. Account Types*](#28-account-types)
+* [*2.9\. Database Management*](#29-database-management)
+* [*2.10\. Data Visualization*](#210-data-visualization)
 
-[**1.3 Definitions, Acronyms, and Abbreviations**](#1.3-definitions,-acronyms,-and-abbreviations)	**[2](#1.3-definitions,-acronyms,-and-abbreviations)**
+[**3\. System Requirements\. 5**](#3-system-requirements)
 
-[**1.4 Document References**](#1.4-document-references)	**[3](#1.4-document-references)**
+* [**3.1 Hardware Requirements\. 5**](#31-hardware-requirements)
+* [**3.2 Software Requirements\. 5**](#32-software-requirements)
 
-[**1.5 System Overview**](#1.5-system-overview)	**[3](#1.5-system-overview)**
+[**4\. Interfaces\. 6**](#4-interfaces)
 
-[**2\. Functional Description**](#2.-functional-description)	**[3](#2.-functional-description)**
+* [**4.1 Standalone Program\. 6**](#41-standalone-program)
 
-[**3\. System Requirements**](#3.-system-requirements)	**[5](#3.-system-requirements)**
+[**5\. Performance\. 6**](#5-performance)
 
-[**3.1 Hardware Requirements**](#3.1-hardware-requirements)	**[5](#3.1-hardware-requirements)**
+[**6\. Delivery\. 6**](#6-delivery)
 
-[**3.2 Software Requirements**](#3.2-software-requirements)	**[5](#3.2-software-requirements)**
+[**7\. Schedule\. 7**](#7-schedule)
 
-[**4\. Interfaces**](#4.-interfaces)	**[6](#4.-interfaces)**
-
-[**4.1 Standalone Program**](#4.1-standalone-program)	**[6](#4.1-standalone-program)**
-
-[**5\. Performance**](#5.-performance)	**[6](#5.-performance)**
-
-[**6\. Delivery**](#6.-delivery)	**[6](#6.-delivery)**
-
-[**7\. Schedule**](#7.-schedule)	**[7](#7.-schedule)**
-
-[**8\. Miscellaneous**](#8.-miscellaneous)	**[7](#8.-miscellaneous)**
+[**8\. Miscellaneous\. 7**](#8-miscellaneous)
 
 **Revision History**
 
@@ -50,124 +56,110 @@
 
 ---
 
-##### **1\. Introduction** {#1.-introduction}
+# **1\. Introduction**
 
-##### **1.1 Purpose** {#1.1-purpose}
+## **1.1\. Purpose**
 
 The purpose of this revised Software Requirements Specifications document (SRS) is to provide the client as well as the development teams with an updated and complete, detailed description of the functional requirements of the Circular Dichroism Spectrometer (CD Spec) application. All requirements described in this document shall be used to aid the development teams, Research and Development (R\&D) and Quality Assurance (QA) in their development and management of the CD Spec database. The SRS also serves as a place to reiterate and establish the project schedule, as previously defined in the Software Development Plan (SDP), for use by all members of the project.
 
-##### **1.2 Scope** {#1.2-scope}
+## **1.2\. Scope**
 
 This document encompasses the specific functionality, system requirements, interfaces, performance, delivery, schedule, and miscellaneous requirements of the CD Spec software described by the customer, Dr. Sherrer. It does not include how the software will be implemented or include how each requirement will be tested.
 
-##### **1.3 Definitions, Acronyms, and Abbreviations** {#1.3-definitions,-acronyms,-and-abbreviations}
+## **1.3\. Definitions, Acronyms, and Abbreviations**
+| **Acronym** | **Meaning** | 
+|:---:|:---:|
+|**SDD**| Software Design Document | 
+|**SDP** | Software Development Plan | 
+|**SRS** | Software Requirements Specification | 
+|**STP** | Software Test Plan | 
+|**CD Spec** | Circular Dichroism Spectrometer | 
+|**R&D** | Research and Development | 
+|**QA** | Quality Assurance | 
+|**DLL** | Dynamic-link Library | 
+|**UI** | User interface | 
+|**URL** | Unified Resource Locator |
 
-**SDD** \- Software Design Document  
-**SDP** \- Software Development Plan  
-**SRS** \- Software Requirements Specification  
-**STP** \- Software Test Plan  
-**CD Spec** \- Circular Dichroism Spectrometer  
-**R\&D** \- Research and Development  
-**QA** \- Quality Assurance  
-**DLL** \- Dynamic-link Library  
-**UI** \- User interface  
-**URL** \- Unified Resource Locator
-
-##### **1.4 Document References** {#1.4-document-references}
+## **1.4\. Document References** 
 
 * Software Development Plan, v.4.0 (February 6, 2023\)
 
-##### **1.5 System Overview** {#1.5-system-overview}
+## **1.5\. System Overview** 
 
 The Circular Dichroism Spectrometer (CD Spec) application is an online database created for research and education purposes. This application shall be utilized by both the instructors and students to monitor spectral changes in structure between protein-DNA interactions. Users of this application shall be able to create three forms of accounts, including an administrator account with full permissions, a student account with limited permissions as specified by the administrator, and public accounts with the least amount of permissions available. A public user may only download and view data within the database, they may not upload, edit, or delete any data from the database. A student account has increased privileges, as students may upload and edit data within the database, with administrator supervision, as well as download any and all data uploaded. Administrator accounts have full access to all functions of this database, meaning these accounts may upload, edit, delete, and download all data entering and exiting the database.
 
-##### ---
-
-**2\. Functional Description** {#2.-functional-description}
+# **2\. Functional Description** 
 
 The following functional requirements are written with a consistent language to inform the reader of their necessity to the final product. Those that begin their content with “the system shall” signify that they are absolutely necessary to the final product. Those that begin with “the system should” are desired in the final product but may be cut if time does not permit.
 
-**2.1** Opening Scene: show the login page and all its features
+## **2.1**\. Login Page
 
-**2.1.1** A Login page for any one who opens the site
-
-**2.1.1.1**The application shall be account creation for the users
-
-**2.1.1.2** The application shall have areas for the user to be able to enter the login page.
-
-**2.1.1.3** The application shall have user login retries.
-
-**2.1.1.4** The application shall have a button for forgot password
-
+**2.1.1** There shall be a login page\
+**2.1.1.1** The application shall be account creation for the users\
+**2.1.1.2** The application shall have areas for the user to be able to enter the login page.\
+**2.1.1.3** The application shall allow the user to reattempt login.\
+**2.1.1.4** The application shall have a button for forgot password\
 **2.1.1.5** The application shall have a “help” option on login screen for sign in help
 
-**2.2** The application shall have user creation page
+## **2.2**\. User Creation Page
 
-**2.2.1** The application shall have a user interface for login credentials
+**2.2.1** There shall be an user creation page\
+**2.2.2** The application shall have a user interface for login credentials\
+**2.2.3** The application shall give a user a key for student or admin creation.\
+**2.2.4**  The application shall have password confirmation
 
-**2.2.2** The application shall give a user a key for student or admin creation.
+## **2.3**\. Forgotten Password Page
 
-**2.2.3**  The application shall have password confirmation
+**2.3.1** There shall be a Forgot Password page\
+**2.3.2** the screen shall have an email account submission block\
+**2.3.3** the screen shall show that a forgot password email was sent below the block for UI\
 
-**2.3**  The application shall have a forgot password page
+## **2.4**\. Help Page
 
-	**2.3.1** the screen shall have an email account submission block
+**2.4.1** There shall be a designated Help page\
+**2.4.2** The help page shall display information about how to use the CD Spec database.
 
-**2.3.2** the screen shall show that a forgot password email was sent below the block for UI
+## **2.5**\. Index Page
 
-**2.4**  The application shall have a Help page
+**2.5.1** There shall be a index page that shows the user a screen where they can access and compare data\
+**2.5.2** The application shall have a back end that will have specific data unlocks based on the user access level\
+**2.5.3** The application shall have a search bar for finding data from the database\
 
-	**2.4.1** The help page shall display information about how to use the CD Spec database.
+## **2.6**\. Upload Page
 
-**2.5** The application shall have a home page: this is a screen that shows the user a screen where they can access and compare data
+**2.6.1**  The application shall have a separate upload page *(admin only)*: the upload will consist of a way to take 2 document types and be able to decipher them so that all the data is accounted for.\
+**2.6.2** The application shall have an edit / create data button *(admin only)*: allows the admin to insert new data to the system and or edit data if the data is incorrect.\
+**2.6.3** The application shall have a description box with a 2000 character limit
 
-**2.5.1** The application shall have a back end that will have specific data unlocks based on the user access level
+## **2.7**\. About Page
 
-**2.5.2** The application shall have a search bar for finding data from the database
+**2.7.1** The application shall have an About page that gives the user a tour of the whole system and how it functions.
 
-**2.5.3** The application shall have an About page that gives the user a tour of the whole system and how it functions.
+## **2.8**\. Account Types
 
-**2.5.4** The application shall have a compare contrast button: a button that grants the user the ability to compare and contrast molecule data of the same type.
+**2.8.1** The application shall have three possible account types with varying permissions.\
+**2.8.1.1** The application shall have an Administrator account which has full permissions.\
+**2.8.1.2** The application shall have a Student account with data searching, viewing, upload, edit, and download permissions.\
+**2.8.1.3** The application shall have a Public account with only data viewing/searching permissions.
 
-**2.5.4.1** The application shall have a way to choose the parameters for comparison on a graphical representation
+## **2.9**\. Database Management
 
-**2.5.4.2** The application shall create a proper graphical representation using practical numbers for the X & Y axis
+**2.9.1** The application shall allow data (CSV or Text File) to be uploaded to a database.\
+**2.9.2** The application shall allow data to be downloaded from a database (CSV or Text File) 
 
-**2.5.4.3** The application shall create a graphical representation of a third Z-axis, displaying temperature information.
+## **2.10**\. Data Visualization
+**2.10.1** The application shall have a compare contrast button: a button that grants the user the ability to compare and contrast molecule data of the same type.\
+**2.10.1.1** The application shall have a way to choose the parameters for comparison on a graphical representation\
+**2.10.1.2** The application shall create a proper graphical representation using practical numbers for the X & Y axis\
+**2.10.1.3** The application shall create a graphical representation of a third Z-axis, displaying temperature information.\
+**2.10.2** The application shall provide a graphical representation of each molecule data, each a separate instance of a molecule in a different state (based on many factors)\
+**2.10.2.1** The application shall take into account a voltage parameter when generating graphs.\
+**2.10.2.2** The application shall take into account a timeframe parameter (temporal scale) when generating graphs.\
+**2.10.2.3** The application shall have a multi-graph function that will graph and display multiple graphs simultaneously.
 
-**2.5.5**  The application shall have a separate upload page(admin only): the upload will consist of a way to take 2 document types and be able to decipher them so that all the data is accounted for.
+# **3\. System Requirements** 
 
-**2.5.5.1** The application shall have an edit / create data button (admin only): allows the admin to insert new data to the system and or edit data if the data is incorrect.
-
-**2.5.5.2** The application shall have a description box with a 2000 character limit
-
-	**2.5.6** The application shall have three possible account types with varying permissions.
-
-		**2.5.6.1** The application shall have an Administrator account which has full permissions.
-
-**2.5.6.2** The application shall have a Student account with data searching, viewing, upload, edit, and download permissions.  
-
-**2.5.6.3** The application shall have a Public account with only data viewing/searching permissions.
-
-	**2.6** The application shall manage data within a database.
-
-**2.6.1** The application shall allow data (CSV or Text File) to be uploaded to a database.
-
-**2.6.2** The application shall allow data to be downloaded from a database (CSV or Text File) 
-
-**2.7** The application shall provide a graphical representation of each molecule data, each a separate instance of a molecule in a different state (based on many factors)
-
-**2.7.1** The application shall take into account a voltage parameter when generating graphs.
-
-**2.7.2** The application shall take into account a timeframe parameter (temporal scale) when generating graphs.
-
-**2.7.3** The application shall have a multi-graph function that will graph and display multiple graphs simultaneously.
-
-##### ---
-
-**3\. System Requirements** {#3.-system-requirements}
-
-##### **3.1 Hardware Requirements** {#3.1-hardware-requirements}
+## **3.1\. Hardware Requirements** 
 
 **Memory**  
 The system shall require a minimum of 2GB of Random Access Memory. The system recommends 4GB of RAM.
@@ -185,13 +177,12 @@ The system shall require that a secondary storage device has a minimum of 4GB of
 The system shall require a display with at least a resolution of 360p.
 
 **Peripherals**  
-	**Pointing Device**  
+* **Pointing Device**  
 	The system shall require a pointing device (e.g, computer mouse, touchpad, touchscreen)
-
-	**Keyboard**   
+* **Keyboard**   
 	The system shall recommend a keyboard device
 
-##### **3.2 Software Requirements** {#3.2-software-requirements}
+## **3.2\. Software Requirements**
 
 **Platform**  
 The system shall run on Windows 11, Version 22H2.
@@ -202,19 +193,15 @@ The system shall statically contain any libraries and not require any additional
 **Web Browser**  
 The system shall run on a web browser (e.g, Google Chrome, Microsoft Edge, Mozilla Firefox, Safari)
 
-##### ---
-
-**4\. Interfaces** {#4.-interfaces}
+# **4\. Interfaces**
 
 The interfaces required to run this application include an internet connection as well as the CD Spec project’s database which will be the core of this web application, as well as a keyboard and mouse to operate. Touchscreen operation should also be supported. For more information about CD Spec requirements and interfaces, refer to the hardware and software requirements in sections 3, 3.1, and 3.2 above.
 
-##### **4.1 Standalone Program** {#4.1-standalone-program}
+## **4.1\. Standalone Program**
 
 This application is not standalone, as it will need to interface with the internet, the CD Spec project database, and a keyboard and mouse as input devices to operate the application. An internet connection is required to run this application as it is needed to give access to the database to multiple parties so that all users can collaborate. The interface with the CD Spec database is needed in order to give access to administrators and uploaders so that they may add data to the database as well as decide what data is visible to the public or not. Keyboard and mouse devices are needed for general operation.
 
-##### ---
-
-**5\. Performance** {#5.-performance}
+# **5\. Performance**
 
 * Users will input the CD Spec URL into their preferred (and supported) web browser which will direct them to the application login page.  
 * From the login page, users shall be able to create a new account or login to a preexisting account if available.  
@@ -222,9 +209,7 @@ This application is not standalone, as it will need to interface with the intern
   * If the login was unsuccessful, the user will be redirected back to the login page where they will be prompted for proper credentials once again. Users should have the option to request login help if login is forgotten.  
 * Any resets can be done by using the browser’s given refresh button. A refresh will rest the database in just a few seconds.
 
-##### ---
-
-**6\. Delivery** {#6.-delivery}
+# **6\. Delivery**
 
 The program shall be developed and updated as a standalone web application. It will be accessible by inputting the correct URL into the address bar when utilizing any of the following web browsers:
 
@@ -234,9 +219,7 @@ The program shall be developed and updated as a standalone web application. It w
 
 No training is required for this delivery as the URL just needs to be inputted into the browser’s address bar. 
 
-##### ---
-
-**7\. Schedule** {#7.-schedule}
+# **7\. Schedule**
 
 **First Drafts:**
 
@@ -260,9 +243,7 @@ No training is required for this delivery as the URL just needs to be inputted i
 
 **Planned (Future) Drafts:**
 
-##### ---
-
-**8\. Miscellaneous** {#8.-miscellaneous}
+# **8\. Miscellaneous**
 
 None.
 

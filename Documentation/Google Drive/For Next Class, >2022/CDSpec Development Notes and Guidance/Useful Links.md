@@ -2,7 +2,7 @@
 
 The Website–[https://cdspeccollab.smcm.edu](https://cdspeccollab.smcm.edu)   
 The GitHub Repo (2020)–[https://github.com/drsimonread/COSC4012020](https://github.com/drsimonread/COSC4012020)     
-The GitHub Repo(2022)–
+The GitHub Repo(2026)–[https://github.com/drsimonread/CDSpecCollab] (https://github.com/drsimonread/CDSpecCollab)
 
 Python Documentation–  
 Django Documentation–

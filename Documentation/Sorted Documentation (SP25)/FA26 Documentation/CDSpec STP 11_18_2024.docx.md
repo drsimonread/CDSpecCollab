@@ -5,43 +5,32 @@
 
 **Table of Contents**
 
-[**1\. Introduction**](#1.-introduction)	**[1](#1.-introduction)**
+[**1.\. Introduction\. 1**](#1-introduction)
+* [**1.1\. Purpose\. 1**](#11-purpose)
+* [**1.2\. Scope\. 1**](#12-scope)
+* [**1.3\. Definitions, Acronyms, and Abbreviations\. 1**](#13-definitions-acronyms-and-abbreviations)
+* [**1.4\. Document References\. 1**](#14-document-references)
+* [**1.5\. System Overview\. 1**](#15-system-overview)
 
-[1.1 Purpose](#1.1-purpose)	[1](#1.1-purpose)
+[**2.\. Requirements to Be Tested\. 2**](#2-requirements-to-be-tested)
 
-[1.2 Scope](#1.2-scope)	[1](#1.2-scope)
+[**3.\. Testing Approach\. 2**](#3-testing-approach)
+* [**3.1\. White Box Testing\. 2**](#31-white-box-testing)
+* [**3.2\. Black Box Testing\. 2**](#32-black-box-testing)
 
-[1.3 Definitions, Acronyms, and Abbreviations](#1.3-definitions,-acronyms,-and-abbreviations)	[1](#1.3-definitions,-acronyms,-and-abbreviations)
+[**4.\. Test Process\. 3**](#4-test-process)
+* [**4.1\. Unit Testing\. 3**](#41-unit-testing)
+* [**4.2\. System Testing\. 3**](#42-system-testing)
 
-[1.4 Document References](#1.4-document-references)	[1](#1.4-document-references)
+[**5.\. Reporting and Corrective Action\. 3**](#5-reporting-and-corrective-action)
 
-[1.5 System Overview](#1.5-system-overview)	[1](#1.5-system-overview)
+[**6.\. Test Environment\. 3**](#6-test-environment)
+* [**6.1\. Unit Testing Environment\. 3**](#61-unit-testing-environment)
+* [**6.2\. System Testing Environment\. 3**](#62-system-testing-environment)
 
-[**2\. Requirements to Be Tested**](#2.-requirements-to-be-tested)	**[2](#2.-requirements-to-be-tested)**
+[**7.\. Test Procedures\. 3**](#7-test-procedures)
 
-[**3\. Testing Approach**](#3.-testing-approach)	**[2](#3.-testing-approach)**
-
-[3.1 White Box Testing](#3.1-white-box-testing)	[2](#3.1-white-box-testing)
-
-[3.2 Black Box Testing](#3.2-black-box-testing)	[2](#3.2-black-box-testing)
-
-[**4\. Test Process**](#4.-test-process)	**[3](#4.-test-process)**
-
-[4.1 Unit Testing](#4.1-unit-testing)	[3](#4.1-unit-testing)
-
-[4.2 System Testing](#4.2-system-testing)	[3](#4.2-system-testing)
-
-[**5\. Reporting and Corrective Action**](#5.-reporting-and-corrective-action)	**[3](#5.-reporting-and-corrective-action)**
-
-[**6\. Test Environment**](#6.-test-environment)	**[3](#6.-test-environment)**
-
-[6.1 Unit Testing Environment](#6.1-unit-testing-environment)	[3](#6.1-unit-testing-environment)
-
-[6.2 System Testing Environment](#6.2-system-testing-environment)	[3](#6.2-system-testing-environment)
-
-[**7\. Test Procedures**](#7.-test-procedures)	**[3](#7.-test-procedures)**
-
-[7.1 Tests](#heading=h.z337ya)	[8](#heading=h.1y810tw)
+[**8.\. Miscellaneous**](#8-miscellaneous)
 
 **Revision History**
 
@@ -52,35 +41,32 @@
 | 02/08/2023 | 1.2 | Updated document | CD Spec QA Team |
 | 11/18/2024 | 1.3 | Updated Test Procedures | Michael Shively |
 
-# **1\. Introduction** {#1.-introduction}
+# **1.\. Introduction**
 
-## **1.1 Purpose** {#1.1-purpose}
+## **1.1\. Purpose**
 
 The purpose of this Software Test Plan (STP) is to define all testing procedures that shall be implemented in the testing of the Circular Dichroism Spectrometer (CD Spec) application.
 
-## **1.2 Scope** {#1.2-scope}
+## **1.2\. Scope**
 
 The purpose of this STP document is to detail any and all test cases associated with the CD Spec application. All plans and specific steps that will be taken during the testing process shall be documented here. This document will be utilized by both the Research and Development (R\&D) and Quality Assurance (Q\&A) teams to test all possible cases within the scope of the CD Spec application.
 
-## **1.3 Definitions, Acronyms, and Abbreviations** {#1.3-definitions,-acronyms,-and-abbreviations}
+## **1.3\. Definitions, Acronyms, and Abbreviations**
 
 | CD Spec | Circular Dichroism Spectrometer |
 | :---- | :---- |
 | Q\&A | Quality Assurance |
 | R\&D | Research and Development |
 | SRS STP UM | Software Requirements Specification Software Test Plan User Management |
-|  |  |
-|  |  |
 
-## **1.4 Document References** {#1.4-document-references}
+## **1.4\. Document References**
 
-## **1.5 System Overview** {#1.5-system-overview}
+## **1.5\. System Overview**
 
 The Circular Dichroism Spectrometer (CD Spec Spec) software shall be a functional database housed within a constructed web application. This software shall be utilized by both instructors and students to monitor spectral changes in structure between protein-DNA interactions. Users of this web application shall be able to create three forms of user accounts. These accounts include a public user account, a student user account, and an administrator account, each of which have specific abilities assigned to them as well as some limitations imposed. A public user account may only view protein-DNA data submitted by account types with more permissions. Public accounts may not edit data in any way or submit data themselves. A student user account may view and submit protein-DNA data. Once submitted, the student account may not edit the data in any way. An administrator account has full permissions, meaning that this account type may perform all functions of the database, including: viewing the data within the database, uploading and submitting of user data, as well as editing of any data contained within the database. 
 
----
 
-# **2\. Requirements to Be Tested** {#2.-requirements-to-be-tested}
+# **2.\. Requirements to Be Tested**
 
 Requirements to be tested are defined within the Software Requirements Specifications (SRS) document, currently at version 3.0. The SRS shall be updated in future to reflect any changes made by the client or the Research and Development team over the course of this project’s duration.
 
@@ -93,15 +79,13 @@ Requirements to be tested are defined within the Software Requirements Specifica
 \-Data Upload (SRS 2.5.5)  
 \-Data Editing (SRS 2.5.5.1)
 
----
+# **3.\. Testing Approach**
 
-# **3\. Testing Approach** {#3.-testing-approach}
-
-## **3.1 White Box Testing** {#3.1-white-box-testing}
+## **3.1\. White Box Testing**
 
 * Database functionality
 
-## **3.2 Black Box Testing** {#3.2-black-box-testing}
+## **3.2\. Black Box Testing**
 
 Members of the CD Spec team shall test the functionality of the CD Spec application. The team will test all possible requirements that have been implemented into the application. Tests will include higher priority/core functions such as:
 
@@ -111,41 +95,33 @@ Members of the CD Spec team shall test the functionality of the CD Spec applicat
 * Data Upload, valid and invalid files  
 * Data Graphing
 
+# **4.\. Test Process**
 
----
-
-# **4\. Test Process** {#4.-test-process}
-
-## **4.1 Unit Testing**   {#4.1-unit-testing}
+## **4.1\. Unit Testing**
 
 Testers will test each function of the CD Spec application individually to ensure that they function correctly. Unit testing is the first stage of testing and will be done to ensure that the next stage of testing, the integration stage, can combine the pieces of the program together into a more finalized product. Unit testing will be done primarily to ensure that the application is able to at least run and display the implemented interfaces.
 
-## **4.2 System Testing** {#4.2-system-testing}
+## **4.2\. System Testing**
 
 The application at this stage will be tested within different testing environments by several different members of the team. The application must function in different web browsers as well as by different users.
 
----
-
-# **5\. Reporting and Corrective Action** {#5.-reporting-and-corrective-action}
+# **5.\. Reporting and Corrective Action**
 
 Errors found will be recorded on the error log document. The errors will then be directly reported to the development team as well as the project leader. From there the QA team will work on finding and reporting more errors while the development team resolves the errors that we have reported.
 
----
+# **6.\. Test Environment**
 
-# **6\. Test Environment** {#6.-test-environment}
-
-## **6.1 Unit Testing Environment** {#6.1-unit-testing-environment}
+## **6.1\. Unit Testing Environment**
 
 Unit Testing shall be performed using Docker container to ensure all dependencies needed for the software are present.
 
-## **6.2 System Testing Environment** {#6.2-system-testing-environment}
+## **6.2\. System Testing Environment**
 
 System testing environment shall be performed in a browser or multiple browsers as specified by the tests that are being performed.  
----
 
-# **7\. Test Procedures** {#7.-test-procedures}
+# **7.\. Test Procedures**
 
-Title: Login Screen  
+**Title: Login Screen**  
 Number: 2.1  
 Version: 1.0  
 Classification: N/A  
@@ -161,7 +137,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Account Creation  
+**Title: Account Creation**  
 Number: 2.1.1.1  
 Version: 1.0  
 Classification: N/A  
@@ -177,7 +153,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Enter Login  
+**Title: Enter Login**  
 Number: 2.1.1.2  
 Version: 1.0  
 Classification: N/A  
@@ -193,7 +169,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Login Retry  
+**Title: Login Retry**  
 Number: 2.1.1.3  
 Version: 1.0  
 Classification: N/A  
@@ -211,7 +187,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Forgot Password Button  
+**Title: Forgot Password Button**  
 Number: 2.1.1.4  
 Version: 1.0  
 Classification: N/A  
@@ -227,7 +203,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Help Option  
+**Title: Help Option**  
 Number: 2.1.1.5  
 Version: 1.0  
 Classification: N/A  
@@ -243,7 +219,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: User Creation Page  
+**Title: User Creation Page**  
 Number: 2.2  
 Version: 1.0  
 Classification: N/A  
@@ -260,7 +236,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Login Credentials  
+**Title: Login Credentials**  
 Number: 2.2.1  
 Version: 1.0  
 Classification: N/A  
@@ -277,7 +253,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Creation Key  
+**Title: Creation Key**  
 Number: 2.2.2  
 Version: 1.0  
 Classification: N/A  
@@ -294,7 +270,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Password Confirmation  
+**Title: Password Confirmation**  
 Number: 2.2.3  
 Version: 1.0  
 Classification: N/A  
@@ -311,7 +287,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Forgot Password Page  
+**Title: Forgot Password Page**  
 Number: 2.3  
 Version: 1.0  
 Classification: N/A  
@@ -328,7 +304,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Email Account Submission  
+**Title: Email Account Submission**  
 Number: 2.3.1  
 Version: 1.0  
 Classification: N/A  
@@ -345,7 +321,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Forgot Password Email  
+**Title: Forgot Password Email**  
 Number: 2.3.2  
 Version: 1.0  
 Classification: N/A  
@@ -363,7 +339,7 @@ Result:
 Notes:  
 Comments: 
 
-Title:   
+**Title:**
 Number: 2.4  
 Version: 1.0  
 Classification: N/A  
@@ -380,7 +356,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Help Information  
+**Title: Help Information**  
 Number: 2.4.1  
 Version: 1.0  
 Classification: N/A  
@@ -397,7 +373,7 @@ Result:
 Notes:  
 Comments: 
 
-Title:   
+**Title:**   
 Number: 2.5  
 Version: 1.0  
 Classification: N/A  
@@ -414,7 +390,7 @@ Result:
 Notes:  
 Comments: 
 
-Title:   
+**Title:**   
 Number: 2.5.1  
 Version: 1.0  
 Classification: N/A  
@@ -430,7 +406,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Search Bar  
+**Title: Search Bar**  
 Number: 2.5.2  
 Version: 1.0  
 Classification: N/A  
@@ -447,7 +423,7 @@ Result:
 Notes:  
 Comments: 
 
-Title:   
+**Title:**   
 Number: 2.5.3  
 Version: 1.0  
 Classification: N/A  
@@ -465,7 +441,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Compare Contrast Button  
+**Title: Compare Contrast Button**  
 Number: 2.5.4  
 Version: 1.0  
 Classification: N/A  
@@ -482,7 +458,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Choosing Parameters  
+**Title: Choosing Parameters**  
 Number: 2.5.4.1  
 Version: 1.0  
 Classification: N/A  
@@ -499,7 +475,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Graphical Representations  
+**Title: Graphical Representations**  
 Number: 2.5.4.2  
 Version: 1.0  
 Classification: N/A  
@@ -517,7 +493,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Z-Axis  
+**Title: Z-Axis**  
 Number: 2.5.4.3  
 Version: 1.0  
 Classification: N/A  
@@ -535,7 +511,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Upload Button  
+**Title: Upload Button**  
 Number: 2.5.5  
 Version: 1.0  
 Classification: N/A  
@@ -553,7 +529,7 @@ Result:
 Notes:  
 Comments: 
 
-Title:   
+**Title:**   
 Number: 2.5.5  
 Version: 1.0  
 Classification: N/A  
@@ -569,7 +545,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Edit/Create Data Button  
+**Title: Edit/Create Data Button**  
 Number: 2.5.5.1  
 Version: 1.0  
 Classification: N/A  
@@ -587,7 +563,7 @@ Result:
 Notes:  
 Comments: 
 
-Title:   
+**Title:**   
 Number: 2.5.5.1  
 Version: 1.0  
 Classification: N/A  
@@ -603,7 +579,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Description Box (1)  
+**Title: Description Box (1)**  
 Number: 2.5.5.2  
 Version: 1.0  
 Classification: N/A  
@@ -622,7 +598,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Description Box (2)  
+**Title: Description Box (2)**  
 Number: 2.5.5.2  
 Version: 1.0  
 Classification: N/A  
@@ -642,7 +618,7 @@ Result:
 Notes:  
 Comments: 
 
-Title:   
+**Title:**   
 Number: 2.5.6.1  
 Version: 1.0  
 Classification: N/A  
@@ -658,7 +634,7 @@ Result:
 Notes:  
 Comments: 
 
-Title:   
+**Title:**   
 Number: 2.5.6.2  
 Version: 1.0  
 Classification: N/A  
@@ -674,7 +650,7 @@ Result:
 Notes:  
 Comments: 
 
-Title:   
+**Title:**   
 Number: 2.5.6.3  
 Version: 1.0  
 Classification: N/A  
@@ -690,7 +666,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: CSV Upload  
+**Title: CSV Upload** 
 Number: 2.6.1  
 Version: 1.0  
 Classification: N/A  
@@ -709,7 +685,7 @@ Result:
 Notes:  
 Comments: 
 
-Title: Text File Upload  
+**Title: Text File Upload**  
 Number: 2.6.1  
 Version: 1.0  
 Classification: N/A  
@@ -728,7 +704,7 @@ Result:
 Notes:  
 Comments: 
 
-Title:   
+**Title:**   
 Number: 2.6.2  
 Version: 1.0  
 Classification: N/A  
@@ -744,7 +720,7 @@ Result:
 Notes:  
 Comments: 
 
-Title:   
+**Title:**   
 Number: 2.7  
 Version: 1.0  
 Classification: N/A  
@@ -760,7 +736,7 @@ Result:
 Notes:  
 Comments: 
 
-Title:   
+**Title:**   
 Number: 2.7.1  
 Version: 1.0  
 Classification: N/A  
@@ -776,7 +752,7 @@ Result:
 Notes:  
 Comments: 
 
-Title:   
+**Title:**   
 Number: 2.7.2  
 Version: 1.0  
 Classification: N/A  
@@ -792,7 +768,7 @@ Result:
 Notes:  
 Comments: 
 
-Title:   
+**Title:**   
 Number: 2.7.3  
 Version: 1.0  
 Classification: N/A  
@@ -810,5 +786,5 @@ Comments:
 
 ---
 
-# **8\. Miscellaneous**:  
-
+# **8.\. Miscellaneous**  
+None.

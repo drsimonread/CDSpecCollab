@@ -29,6 +29,34 @@
 
 </div>
 
+<div>
+{% for protein in proteins %}
+<label for="marker-{{forloop.counter0}}">{{protein.run_title}} marker:</label>
+<select id="marker-{{forloop.counter0}}" class="dataset-marker" onchange="changePlotMarker({{forloop.counter0}}, this.value)">
+  <option value="circle">Circle</option>
+  <option value="square">Square</option>
+  <option value="triangle-up">Triangle up</option>
+  <option value="cross">Cross</option>
+  <option value="diamond-tall">Diamond</option>
+  <option value="star">Star</option>
+</select>
+{% endfor %}
+</div>
+
+<div>
+{% for protein in proteins %}
+<label for="line-dash-{{forloop.counter0}}">{{protein.run_title}} line dash:</label>
+<select id="line-dash-{{forloop.counter0}}" class="dataset-line-dash" onchange="changePlotLineDash({{forloop.counter0}}, this.value)">
+  <option value="solid">Solid</option>
+  <option value="dash">Dash</option>
+  <option value="dot">Dot</option>
+  <option value="dashdot">Dash-dot</option>
+  <option value="longdash">Long dash</option>
+  <option value="longdashdot">Long dash-dot</option>
+</select>
+{% endfor %}
+</div>
+
 {# create a div for the color wheel#}
  <div class="wrap">
       <div class="half">
@@ -96,6 +124,14 @@ function changePlotColor() {
     Plotly.update(canvas, update, {}, [document.querySelector('input[name="modelS"]:checked').value - 1]);
 }
 
+function changePlotMarker(traceIndex, symbol) {
+    Plotly.restyle(canvas, {'marker.symbol': symbol}, [traceIndex]);
+}
+
+function changePlotLineDash(traceIndex, dash) {
+    Plotly.restyle(canvas, {'line.dash': dash}, [traceIndex]);
+}
+
 //returns a color for some int h such that colors are distinct for each h
 function rainbowStop(h) {
   let f= (n,k=(n+h*12)%12) => .5-.5*Math.max(Math.min(k-3,9-k,1),-1);  
@@ -108,19 +144,28 @@ var canvas = document.getElementById('graph');
 // data variable creation
 var data = [];
 
+// array of marker symbols to use for each trace
+var markerSymbols = ['circle', 'square', 'triangle-up', 'cross', 'diamond-tall', 'star'];
+var lineDashes = ['solid', 'dash', 'dot', 'dashdot', 'longdash', 'longdashdot'];
+// set the default marker symbol for each dataset-marker select element
+document.querySelectorAll('.dataset-marker').forEach(function(select, index) {
+    select.value = markerSymbols[index % markerSymbols.length];
+});
+// set the default line dash for each dataset-line-dash select element
+document.querySelectorAll('.dataset-line-dash').forEach(function(select, index) {
+    select.value = lineDashes[index % lineDashes.length];
+});
+
 //for each model, add (x, y) trace to data array, then create scatter plot
 {% for protein in proteins %}
-{% cycle 'solid' 'dash' 'dot' as line_dash silent %}
-{% cycle 'circle' 'square' 'triangle-up' as marker_symbol silent %}
-{% cycle '6' '6' '8' as marker_size silent %}
 var trace{{forloop.counter}} = {
     x: {{protein.x|safe}},
     y: {{protein.y|safe}},
    // mode come from the plotly
     mode: 'lines+markers',
     name: '{{protein.run_title}}',
-    line: { dash: '{{line_dash}}' },
-    marker: { symbol: '{{marker_symbol}}', size: {{marker_size}} }
+    line: { dash: lineDashes[{{forloop.counter0}} % lineDashes.length] },
+    marker: { symbol: markerSymbols[{{forloop.counter0}} % markerSymbols.length], size: 8 },
 };
 
 // adding trace to data array

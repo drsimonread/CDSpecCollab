@@ -16,6 +16,10 @@ the "social applications" tab needs to have the "secret id",
 "client id" and "chosen sites" updated to reflect the new id's from
 the gmail account, and the new site added under the sites tab
 
+when opening the live version of the site, you will be met with a not secure message.
+the connection to the site needs to be secured with a proper
+SSL certification, and this step will be done during deployment
+
 The special gmail will need to have a Google Cloud Console account setup
 where you will need to setup "Credentials" and "OAuth Consent Screen" located
 under the "API's and Services" tab

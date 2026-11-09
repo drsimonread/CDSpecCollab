@@ -14,6 +14,34 @@ body {
   line-height: 150%;
 }
 
+.about-intro {
+  text-align: center;
+}
+
+.about-instructions {
+  text-align: justify;
+  background-color: lightblue;
+}
+
+.about-section-heading {
+  font-size: 18px;
+}
+
+.run-metadata {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.run-metadata-text,
+.run-table {
+  width: 100%;
+}
+
+.run-metadata-text {
+  max-width: 100%;
+}
+
 .wrap {
   min-height: 100vh;
   max-width: 720px;

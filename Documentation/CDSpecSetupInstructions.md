@@ -10,7 +10,7 @@
 	-	git config --global user.email `github-email`
 		-	Put in your GitHub email
 	-	git init
-	-	git clone https://github.com/drsimonread/COSC4012020
+	-	git clone https://github.com/drsimonread/CDSpecCollab
 	-	sudo apt-get install python3-pip
 	  -	Y to Continue
 	-	sudo apt install python3-django

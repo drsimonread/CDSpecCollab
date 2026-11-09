@@ -2,13 +2,13 @@
 {% block content %}
 
 <h1>{{specrun.run_title}}</h1>
-<ul style="list-style-type:none; margin:0; padding:0;">
+<ul class="run-metadata">
 <li><b>Uploaded:</b> {{specrun.upload_date}}
 {% if specrun.upload_user_string != "" %} by <a href="/cdspec/uploadedby={{specrun.upload_user_string}}">{{specrun.upload_user_string}}</a> {% endif %}</li>
 <li><b>Ran:</b> {{specrun.run_date}} by {{specrun.run_user}}</li>
 <li><b>File:</b> <a href="{{MEDIA_URL}}/{{specrun.source_file.name}}">{{specrun.source_file}}</a></li>
-<li><b>Description:</b> <textarea style="width: 100%; max-width: 100%;" readonly>{{specrun.run_description}}</textarea></li>
-<li><b>{{specrun.data_points}} Datapoints:</b> <textarea style="width: 100%; max-width: 100%;" readonly>{{specrun.data}}</textarea></li>
+<li><b>Description:</b> <textarea class="run-metadata-text" readonly>{{specrun.run_description}}</textarea></li>
+<li><b>{{specrun.data_points}} Datapoints:</b> <textarea class="run-metadata-text" readonly>{{specrun.data}}</textarea></li>
 <li><b>Protein Concentration:</b> {{specrun.protein_concentration|stringformat:".3G"}} mg/mL</li>
 <li><b>Pathlength:</b> {{specrun.pathlength|stringformat:".3G"}} cm</li>
 <li><b># of Amino Acids:</b> {{specrun.number_of_amino_acids}}</li>

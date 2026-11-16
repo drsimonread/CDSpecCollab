@@ -3,16 +3,20 @@
 <h1>Multi Graph</h1>
 
 {# create a div to display the graph #}
-<div id="graph" width="400" height="200"> </div>
+<div id="graph" width="400" height="200" tabindex="0" role="region"
+     aria-label="Interactive graph"
+     aria-describedby="graph-instructions graph-announcement"></div>
+<p id="graph-instructions">Focus the graph and use the arrow keys to explore data points. Left and right move between points; up and down move between runs.</p>
+<p id="graph-announcement" aria-live="polite" aria-atomic="true"></p>
 
-<div>
+<div role="group" aria-label="Displayed measurement">
 {# button for each funtions in the python script #}
-<button onClick = "changeY()">Display {{first.y_units}}</button>
+<button type="button" id="axis-y" aria-pressed="true" onClick="changeY()">Display {{first.y_units}}</button>
 {% if first.y2_units != None %}
-<button onClick = "changeY2()">Display {{first.y2_units}}</button>
+<button type="button" id="axis-y2" aria-pressed="false" onClick="changeY2()">Display {{first.y2_units}}</button>
 {% endif %}
 {% if first.y3_units != None %}
-<button onClick = "changeY3()">Display {{first.y3_units}}</button>
+<button type="button" id="axis-y3" aria-pressed="false" onClick="changeY3()">Display {{first.y3_units}}</button>
 {% endif %}
 </div>
 {# imported javascript data for the plotly app and the colorwheel #}
@@ -21,15 +25,18 @@
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
 
-<div>
-<label for="model"> Change Color: </label>
+<fieldset>
+<legend>Choose the run to recolor</legend>
 {% for protein in proteins %}
-<input type="radio" name="modelS" value="{{forloop.counter}}" checked="checked">{{protein.run_title}}</input>
-{% endfor %}
-
-</div>
-
 <div>
+<input type="radio" id="model-{{forloop.counter0}}" name="modelS" value="{{forloop.counter}}" {% if forloop.first %}checked{% endif %}>
+<label for="model-{{forloop.counter0}}">{{protein.run_title}}</label>
+</div>
+{% endfor %}
+</fieldset>
+
+<fieldset>
+<legend>Marker shapes</legend>
 {% for protein in proteins %}
 <label for="marker-{{forloop.counter0}}">{{protein.run_title}} marker:</label>
 <select id="marker-{{forloop.counter0}}" class="dataset-marker" onchange="changePlotMarker({{forloop.counter0}}, this.value)">
@@ -41,9 +48,10 @@
   <option value="star">Star</option>
 </select>
 {% endfor %}
-</div>
+</fieldset>
 
-<div>
+<fieldset>
+<legend>Line styles</legend>
 {% for protein in proteins %}
 <label for="line-dash-{{forloop.counter0}}">{{protein.run_title}} line dash:</label>
 <select id="line-dash-{{forloop.counter0}}" class="dataset-line-dash" onchange="changePlotLineDash({{forloop.counter0}}, this.value)">
@@ -55,18 +63,21 @@
   <option value="longdashdot">Long dash-dot</option>
 </select>
 {% endfor %}
-</div>
+</fieldset>
 
 {# create a div for the color wheel#}
  <div class="wrap">
       <div class="half">
-        <div class="colorPicker"></div>
-       <span class="title">Drag the circle inside the color wheels.</span> 
+        <div id="colorPickerKeyboard" tabindex="0" role="group" aria-label="Color wheel"
+             aria-describedby="color-wheel-instructions">
+          <div class="colorPicker" aria-hidden="true"></div>
+        </div>
+       <span class="title" id="color-wheel-instructions">Use Left/Right to adjust hue and Up/Down to adjust saturation. Hold Shift with Up/Down to adjust brightness; Shift uses larger steps.</span>
       </div>
       <div class="half readout">
-        <span class="title">Selected Color:</span>
-        <div id="values"></div>
-        <input id="hexInput"></input> 
+        <span class="title">Selected color:</span>
+        <div id="values" aria-live="polite" aria-atomic="true"></div>
+        <input id="hexInput" type="text" value="#ff0000" pattern="#[0-9a-fA-F]{6}" aria-label="Selected color in hexadecimal">
        </div>
     </div>
 
@@ -93,12 +104,7 @@ var hexInput = document.getElementById("hexInput");
 colorPicker.on(["color:init", "color:change"], function(color){
   // Show the current color in different formats
   // Using the selected color: https://iro.js.org/guide.html#selected-color-api
-  values.innerHTML = [
-    "hex: " + color.hexString,
-    "rgb: " + color.rgbString,
-    "hsl: " + color.hslString,
-  ].join("<br>");
-  
+  values.textContent = "Hex: " + color.hexString + "; RGB: " + color.rgbString + "; HSL: " + color.hslString;
   hexInput.value = color.hexString;
 
 });
@@ -111,8 +117,46 @@ colorPicker.on(["color:change"], function(color) {
 
 // color wheel methods for user to manual add a hex value for a particular color
 hexInput.addEventListener('change', function() {
+  if (!/^#[0-9a-f]{6}$/i.test(this.value)) {
+    this.setAttribute("aria-invalid", "true");
+    this.setCustomValidity("Enter a six-digit hex color, such as #ff0000.");
+    this.reportValidity();
+    return;
+  }
+  this.removeAttribute("aria-invalid");
+  this.setCustomValidity("");
   colorPicker.color.hexString = this.value;
   changePlotColor();
+});
+
+document.getElementById("colorPickerKeyboard").addEventListener("keydown", function(event) {
+  var color = colorPicker.color;
+  var step = event.shiftKey ? 5 : 1;
+  switch (event.key) {
+    case "ArrowLeft":
+      color.hue = (color.hue - step + 360) % 360;
+      break;
+    case "ArrowRight":
+      color.hue = (color.hue + step) % 360;
+      break;
+    case "ArrowUp":
+      if (event.shiftKey) {
+        color.value = Math.min(100, color.value + 1);
+      } else {
+        color.saturation = Math.min(100, color.saturation + step);
+      }
+      break;
+    case "ArrowDown":
+      if (event.shiftKey) {
+        color.value = Math.max(0, color.value - 1);
+      } else {
+        color.saturation = Math.max(0, color.saturation - step);
+      }
+      break;
+    default:
+      return;
+  }
+  event.preventDefault();
 });
 
 //change a trace's color based on selected radio button
@@ -188,8 +232,45 @@ var layout = {
 // main muti-graph without layout change
 Plotly.newPlot(canvas, data, layout);
 
+var keyboardPoint = { curve: 0, point: 0 };
+canvas.addEventListener("keydown", function(event) {
+  var directions = {
+    ArrowLeft: [0, -1],
+    ArrowRight: [0, 1],
+    ArrowUp: [-1, 0],
+    ArrowDown: [1, 0]
+  };
+  if (!directions[event.key]) return;
+
+  event.preventDefault();
+  event.stopPropagation();
+  if (!canvas.data || !canvas.data.length) return;
+  var [curveChange, pointChange] = directions[event.key];
+  var curve = Math.max(0, Math.min(canvas.data.length - 1, keyboardPoint.curve + curveChange));
+  var pointCount = canvas.data[curve].x.length;
+  if (!pointCount) return;
+  var point = curveChange ? Math.min(keyboardPoint.point, pointCount - 1) :
+    Math.max(0, Math.min(pointCount - 1, keyboardPoint.point + pointChange));
+  keyboardPoint = { curve: curve, point: point };
+  var trace = canvas.data[curve];
+  var x = trace.x[point];
+  var y = trace.y[point];
+  var xUnits = canvas.layout.xaxis.title.text;
+  var yUnits = canvas.layout.yaxis.title.text;
+  document.getElementById("graph-announcement").textContent =
+    trace.name + "; x: " + x + " " + xUnits + "; y: " + y + " " + yUnits;
+  Plotly.Fx.hover(canvas, [{ curveNumber: curve, pointNumber: point }]);
+});
+
+function setAxisButton(activeId) {
+  document.querySelectorAll('[id^="axis-y"]').forEach(function(button) {
+    button.setAttribute("aria-pressed", button.id === activeId ? "true" : "false");
+  });
+}
+
 //change data/axes to (x, y)
 function changeY() {
+  setAxisButton("axis-y");
   //update (x, y) trace to data array for each model
   {% for protein in proteins %}
   var update{{forloop.counter}} = {
@@ -219,6 +300,7 @@ function changeY() {
 
 //change data/axes to (x, y2)
 function changeY2() {
+  setAxisButton("axis-y2");
   //update (x, y2) trace to data array for each model
   {% for protein in proteins %}
   var update{{forloop.counter}} = {
@@ -248,6 +330,7 @@ function changeY2() {
 
 //change data/axes to (x, y3)
 function changeY3() {
+  setAxisButton("axis-y3");
   //update (x, y3) trace to data array for each model
   {% for protein in proteins %}
   var update{{forloop.counter}} = {

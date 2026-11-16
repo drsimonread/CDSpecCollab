@@ -48,6 +48,7 @@ If you are not sure which team you are on, ask your instructor before guide 09.
 | [12 Merge your branch into development](12-merge-your-branch-into-development.md) | Shares your work with the team, and keeps your branch up to date | Your VM |
 | [13 A typical development session](13-a-typical-development-session.md) | The routine for every session, from starting the VM to stopping it | Everywhere |
 | [14 Training resources](14-training-resources.md) | Tutorials for HTML, CSS, JavaScript, Python, Django and git | Web browser, and your VM |
+| [15 Keep secrets out of git](15-keep-secrets-out-of-git.md) | Keeps passwords and API keys out of the repository with a `.env` file; GitHub Secrets and their drawbacks; what to do after committing a secret | Your VM |
 
 Start guide 01 first, even though nothing else depends on it yet: GitHub's student verification can take several days, and you can carry on with the other guides while you wait.
 

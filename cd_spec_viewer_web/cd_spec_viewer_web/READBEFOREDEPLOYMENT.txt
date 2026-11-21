@@ -25,9 +25,7 @@ python manage.py migrate
 python manage.py runserver
 
 Do not also configure a Google Social Application in the database when using
-the environment-based credentials. If one was previously created for this
-local database, remove that local entry before setting the environment
-variables, or Allauth may find duplicate Google app configurations.
+the environment-based credentials, or Allauth may find duplicate Google app configurations.
 
 This includes the creation of a special gmail account that will be used 
 for setting up Sign In with Google settings and sending confirmation and

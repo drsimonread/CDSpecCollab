@@ -2,6 +2,33 @@ There are multiple files and settings that need to be updated before CDSpec
 goes live, and they are listed below. Many of the current login and gmail
 settings are for testing and development purposes only.
 
+Local Google sign-in can be configured without creating a Social Application
+in Django admin. Set GOOGLE_OAUTH_CLIENT_ID and GOOGLE_OAUTH_CLIENT_SECRET in
+the environment of the shell that starts the development server. Obtain these
+credentials securely; do not commit them. In Google Cloud, register this
+authorized redirect URI for local development:
+
+http://127.0.0.1:8000/accounts/google/login/callback/
+
+From the cd_spec_viewer_web directory, set the variables in the same shell
+that starts the server:
+
+export GOOGLE_OAUTH_CLIENT_ID="your-client-id"
+export GOOGLE_OAUTH_CLIENT_SECRET="your-client-secret"
+
+For a fresh local database, also set DJANGO_SITE_ID=1 before running
+migrations. Django creates the default Site using that ID. The default
+SITE_ID remains 4 for existing deployments; set DJANGO_SITE_ID to the
+deployment's configured Site ID when needed.
+
+python manage.py migrate
+python manage.py runserver
+
+Do not also configure a Google Social Application in the database when using
+the environment-based credentials. If one was previously created for this
+local database, remove that local entry before setting the environment
+variables, or Allauth may find duplicate Google app configurations.
+
 This includes the creation of a special gmail account that will be used 
 for setting up Sign In with Google settings and sending confirmation and
 error email configuration

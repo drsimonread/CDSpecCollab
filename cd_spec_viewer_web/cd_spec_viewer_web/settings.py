@@ -54,15 +54,20 @@ INSTALLED_APPS = [
 ]
 
 # The social accounts you can log in with (only google)
-SOCIALACCOUNT_PROVIDERS = { 
-    "google": {
-        "SCOPE": [
-            "profile",
-            "email"
-        ],
-        "AUTH_PARAMS": {"access_type": "online"}
-    }
+google_provider_settings = {
+    "SCOPE": ["profile", "email"],
+    "AUTH_PARAMS": {"access_type": "online"},
 }
+google_client_id = os.environ.get("GOOGLE_OAUTH_CLIENT_ID")
+google_client_secret = os.environ.get("GOOGLE_OAUTH_CLIENT_SECRET")
+if google_client_id and google_client_secret:
+    google_provider_settings["APP"] = {
+        "client_id": google_client_id,
+        "secret": google_client_secret,
+        "key": "",
+    }
+
+SOCIALACCOUNT_PROVIDERS = {"google": google_provider_settings}
 
 # Various middlewares that django uses to make the program run properly
 MIDDLEWARE = [
@@ -136,7 +141,7 @@ AUTHENTICATION_BACKENDS = [
 AUTH_USER_MODEL = "users.User"
 
 # The site ID the site these settings apply to in the django admin
-SITE_ID = 4 # (UPDATE ON RELEASE)
+SITE_ID = int(os.environ.get("DJANGO_SITE_ID", "4")) # (UPDATE ON RELEASE)
 
 # PASSWORDS
 # ------------------------------------------------------------------------------

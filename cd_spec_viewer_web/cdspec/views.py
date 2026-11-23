@@ -50,7 +50,12 @@ class IndexView(generic.ListView):
         else:
            return SpecRun.objects.order_by('-upload_date')[:10]
 
+@require_http_methods(["POST"])
 def upload_csv(request):
+    if not request.user.has_perm('cdspec.can_upload'):
+        messages.info(request, "You do not have permission to upload")
+        return HttpResponseRedirect("/cdspec/")
+
     if request.method == "POST":
         uploaded_file = request.FILES.get("csvFile")
 
@@ -59,7 +64,8 @@ def upload_csv(request):
                 "error": "No file uploaded."
             })
 
-        if not uploaded_file.name.endswith(".csv"):
+        filename = os.path.basename(uploaded_file.name.replace("\\", "/"))
+        if not filename.lower().endswith(".csv"):
             return render(request, "pages/upload.html", {
                 "error": "File must be a .csv file."
             })
@@ -72,7 +78,7 @@ def upload_csv(request):
 
         # Save file into that folder
         fs = FileSystemStorage(location=upload_path)
-        filename = fs.save(uploaded_file.name, uploaded_file)
+        filename = fs.save(filename, uploaded_file)
 
         return render(request, "pages/upload.html", {
             "success": f"Uploaded {filename}!"

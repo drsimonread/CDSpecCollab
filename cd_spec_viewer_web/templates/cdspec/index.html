@@ -77,10 +77,12 @@
 			serverSide: true,
 			dom : 'Bfrtip',
 			buttons : [
+			{% if perms.cdspec.can_upload %}
 			{
 				text : "Upload",
 				action: function(){ window.location.href = "/cdspec/create"; }
 			},
+			{% endif %}
 			{
 				text : "Multi-Graph",
 				action: function(){

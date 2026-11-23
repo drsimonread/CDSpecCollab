@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+from django.forms import FileInput, ModelForm
 from cdspec.models import SpecRun
 
 
@@ -9,6 +9,9 @@ class CreateForm(ModelForm):
         model = SpecRun
         fields = ('run_title', 'run_description', 'run_user', 'visible_student', 'visible_public',
          'source_file', 'protein_concentration', 'pathlength', 'number_of_amino_acids')
+        widgets = {
+            'source_file': FileInput(attrs={'accept': '.csv'}),
+        }
 
 #Edit form, model specifies which database table to use and fields specify the fields included in the form.
 class EditForm(ModelForm):

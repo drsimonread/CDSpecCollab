@@ -55,7 +55,7 @@ Here is the idea behind Remote Development. VS Code splits itself in two: the ha
 6. If it asks whether you trust the host's "fingerprint", click **Continue**. This question only appears the first time you connect to a machine; it is SSH's way of introducing you.
 7. Wait. The first connection takes a minute or two, because VS Code is quietly downloading and installing its working half (the "VS Code Server") on your VM. Later connections are much faster.
 
-BEWARE: do not close the window, close the laptop's lid or let it go to sleep while the VS Code Server is installing. An interrupted installation leaves a half-finished copy on the VM, and VS Code then tends to try the download again and again rather than finishing. If the connection is still not ready after five minutes, see "Connecting takes forever, or keeps saying it is downloading or installing the VS Code Server" in "If something goes wrong".
+BEWARE: do not close the window, close the laptop's lid or let it go to sleep while the VS Code Server is installing. An interrupted installation leaves a half-finished copy on the VM, and VS Code then tends to try the download again and again rather than finishing. If the connection is still not ready after five minutes, follow [05a Fix repeated VS Code Server downloads](05a-fix-vscode-server-repeated-downloads.md).
 
 ### Step 5: Confirm you are connected
 
@@ -290,18 +290,7 @@ Keep `VsCodePractice` if you want to experiment further. To delete it, connect t
 
 **Connecting hangs, or says "Could not establish connection" or "Connection timed out".** Check that your VM is running in the Google Cloud console. Then check its External IP address: unless you reserved a fixed ("static") address, Google Cloud may give the VM a new one each time it starts. If it has changed, update the `HostName` line in your SSH configuration file (guide 04, Step 17) and connect again.
 
-**Connecting takes forever, or keeps saying it is downloading or installing the VS Code Server.** The installation was probably interrupted (the window was closed, the laptop slept or the network dropped), and VS Code is now tripping over the half-finished copy, starting the download several times over. Waiting will not fix it; removing the broken copy will. The VS Code Server lives in a hidden folder called `.vscode-server` in your home folder on the VM, so we log in to the VM without VS Code and delete that folder. VS Code then installs a fresh copy next time you connect.
-
-1. Close every VS Code window.
-2. On Windows, open **PowerShell** (press the **Windows** key, type `PowerShell` and press **Enter**). On macOS, open **Terminal** (press **Cmd+Space**, type `Terminal` and press **Return**).
-3. Type `ssh gcp-vm` and press **Enter** or **Return**. (If you have not given your VM a short name, type `ssh` followed by a space, your username, an `@` sign and the VM's External IP address instead, for example `ssh jdoe@34.86.xx.xx`.)
-4. Check that the prompt now shows your username and your VM's name. Everything you type from here on runs on the VM.
-5. Type `pkill -f vscode-server` and press **Enter** or **Return**. This stops any VS Code Server programs that are still running. It prints nothing, whether or not it found any.
-6. Type `rm -rf ~/.vscode-server` and press **Enter** or **Return**. It prints nothing if it succeeds.
-7. Type `exit` and press **Enter** or **Return** to log out of the VM.
-8. Close PowerShell or Terminal, then connect again from VS Code (Step 4) and leave it alone until the **SSH:** box appears.
-
-BEWARE: `rm -rf` deletes without asking and has no undo, so check the command letter by letter before pressing the key; the `~/.vscode-server` part matters, dot and all. Your own files are not in that folder and are not affected, but the extensions you copied to the VM are, so repeat Step 6 once you are connected again.
+**Connecting takes forever, or keeps saying it is downloading or installing the VS Code Server.** The installation was probably interrupted (the window was closed, the laptop slept or the network dropped), and VS Code is now tripping over the half-finished copy, starting the download several times over. Waiting will not fix it. Follow [05a Fix repeated VS Code Server downloads](05a-fix-vscode-server-repeated-downloads.md), which stops the stray downloads, deletes the broken copy from the VM and changes two settings so that it does not happen again.
 
 **"Permission denied (publickey)".** The username before the `@` must match the comment on your SSH key exactly, including capital letters. If it does, the key on your laptop may not match the one added to the VM; go back to [04 Create your Google Cloud VM](04-create-your-vm.md), Part 1.
 

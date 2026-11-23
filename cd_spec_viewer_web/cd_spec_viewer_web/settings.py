@@ -6,6 +6,7 @@ The parts of this file that need updating will be marked
 with (UPDATE ON RELEASE)
 """
 import os
+from datetime import timedelta
 
 # Paths used for file navigation by the program, setting the base directory
 # and then the program will navigate from there automatiocally
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.forms',
+    'axes',
     "crispy_forms",
     "crispy_bootstrap4",
 
@@ -73,6 +75,7 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "axes.middleware.AxesMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.common.BrokenLinkEmailsMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
@@ -128,6 +131,7 @@ DATABASES = {
 # https://docs.djangoproject.com/en/dev/ref/settings/#authentication-backends
 # How the website does account authentication
 AUTHENTICATION_BACKENDS = [
+    "axes.backends.AxesStandaloneBackend",
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
@@ -222,7 +226,12 @@ EMAIL_SUBJECT_PREFIX = "[CD Spec Viewer Web]" # django uses this as an email hea
 # ADMIN
 # ------------------------------------------------------------------------------
 # Django Admin URL.
-ADMIN_URL = "admin/"
+ADMIN_URL = "cdspec_divine_administrator"
+
+#Axes limits failed sign in attempts on admin portal 
+AXES_FAILURE_LIMIT = 5
+AXES_COOLOFF_TIME = timedelta(minutes=30)
+AXES_ONLY_ADMIN_SITE = True
 # When there is an error on the deployed site, they are sent to the below email 
 ADMINS = [("""COSC420 SMCM""", "sread@smcm.edu")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#managers
